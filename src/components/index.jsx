@@ -1,4 +1,5 @@
-import DonutChart from "./DonutChart";
+import FundChart from "./FundChart";
+import ProposalChart from "./ProposalChart";
 import AnimateBackground from "./AnimateBackground";
 
-export {DonutChart, AnimateBackground}
+export { FundChart, AnimateBackground, ProposalChart }

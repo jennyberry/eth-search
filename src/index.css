@@ -18,6 +18,7 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -39,9 +40,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -52,16 +55,161 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
 }
 
 /* background-image */
-.tk-blob{animation:blob-turn var(--time, 30s) linear infinite;fill:var(--fill, #7600f8);position:relative;transform-origin:center}.tk-blob svg{animation:blob-skew calc( var(--time, 30s) * 0.5 ) linear 0s infinite;transform-origin:center}.tk-blob svg path{animation:blob-scale calc( var(--time, 30s) * 0.5 ) ease-in-out 0s infinite;transform-origin:center}@keyframes blob-turn{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}@keyframes blob-skew{0%{transform:skewY(0deg)}13%{transform:skewY( calc( (1.8deg) * var(--amount, 2)) )}18%{transform:skewY( calc( (2.2deg) * var(--amount, 2)) )}24%{transform:skewY( calc( (2.48deg) * var(--amount, 2)) )}25%{transform:skewY( calc( (2.5deg) * var(--amount, 2)) )}26%{transform:skewY( calc( (2.48deg) * var(--amount, 2)) )}32%{transform:skewY( calc( (2.2deg) * var(--amount, 2)) )}37%{transform:skewY( calc( (1.8deg) * var(--amount, 2)) )}50%{transform:skewY(0deg)}63%{transform:skewY( calc( (-1.8deg) * var(--amount, 2)) )}68%{transform:skewY( calc( (-2.2deg) * var(--amount, 2)) )}74%{transform:skewY( calc( (-2.48deg) * var(--amount, 2)) )}75%{transform:skewY( calc( (-2.5deg) * var(--amount, 2)) )}76%{transform:skewY( calc( (-2.48deg) * var(--amount, 2)) )}82%{transform:skewY( calc( (-2.2deg) * var(--amount, 2)) )}87%{transform:skewY( calc( (-1.8deg) * var(--amount, 2)) )}100%{transform:skewY(0deg)}}@keyframes blob-scale{0%{transform:scaleX(.9) scaleY(1)}25%{transform:scaleX(.9) scaleY(.9)}50%{transform:scaleX(1) scaleY(.9)}75%{transform:scaleX(.9) scaleY(.9)}100%{transform:scaleX(.9) scaleY(1)}}
+.tk-blob {
+  animation: blob-turn var(--time, 30s) linear infinite;
+  fill: var(--fill, #7600f8);
+  position: relative;
+  transform-origin: center
+}
+
+.tk-blob svg {
+  animation: blob-skew calc(var(--time, 30s) * 0.5) linear 0s infinite;
+  transform-origin: center
+}
+
+.tk-blob svg path {
+  animation: blob-scale calc(var(--time, 30s) * 0.5) ease-in-out 0s infinite;
+  transform-origin: center
+}
+
+@keyframes blob-turn {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes blob-skew {
+  0% {
+    transform: skewY(0deg)
+  }
+
+  13% {
+    transform: skewY(calc((1.8deg) * var(--amount, 2)))
+  }
+
+  18% {
+    transform: skewY(calc((2.2deg) * var(--amount, 2)))
+  }
+
+  24% {
+    transform: skewY(calc((2.48deg) * var(--amount, 2)))
+  }
+
+  25% {
+    transform: skewY(calc((2.5deg) * var(--amount, 2)))
+  }
+
+  26% {
+    transform: skewY(calc((2.48deg) * var(--amount, 2)))
+  }
+
+  32% {
+    transform: skewY(calc((2.2deg) * var(--amount, 2)))
+  }
+
+  37% {
+    transform: skewY(calc((1.8deg) * var(--amount, 2)))
+  }
+
+  50% {
+    transform: skewY(0deg)
+  }
+
+  63% {
+    transform: skewY(calc((-1.8deg) * var(--amount, 2)))
+  }
+
+  68% {
+    transform: skewY(calc((-2.2deg) * var(--amount, 2)))
+  }
+
+  74% {
+    transform: skewY(calc((-2.48deg) * var(--amount, 2)))
+  }
+
+  75% {
+    transform: skewY(calc((-2.5deg) * var(--amount, 2)))
+  }
+
+  76% {
+    transform: skewY(calc((-2.48deg) * var(--amount, 2)))
+  }
+
+  82% {
+    transform: skewY(calc((-2.2deg) * var(--amount, 2)))
+  }
+
+  87% {
+    transform: skewY(calc((-1.8deg) * var(--amount, 2)))
+  }
+
+  100% {
+    transform: skewY(0deg)
+  }
+}
+
+@keyframes blob-scale {
+  0% {
+    transform: scaleX(.9) scaleY(1)
+  }
+
+  25% {
+    transform: scaleX(.9) scaleY(.9)
+  }
+
+  50% {
+    transform: scaleX(1) scaleY(.9)
+  }
+
+  75% {
+    transform: scaleX(.9) scaleY(.9)
+  }
+
+  100% {
+    transform: scaleX(.9) scaleY(1)
+  }
+}
+
+.legend-section {
+  display: flex;
+  font-family: Nunito;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+/* .legend-info {
+  display: flex;
+  flex-direction: row;
+  font-family: Nunito;
+  margin: auto;
+} */
+
+.label-data {
+  font-size: 15px;
+
+}
+
+.numbers {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 5px;
+}
 
 
 @tailwind base;
