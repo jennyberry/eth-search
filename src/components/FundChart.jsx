@@ -7,58 +7,21 @@ ChartJS.register(ArcElement, Tooltip, Legend) */
 import Chart from 'react-apexcharts';
 
 const DonutChart = () => {
-    /*  const data = {
-         labels: ['Distrbuted', 'Remaining'],
-         datasets: [{
-             label: 'Funding',
-             data: ['25.9', '12.4'],
-             backgroundColor: ['#5368F3', '#FFC403'],
-             borderColor: ['#5368F3', '#FFC403'],
-         }]
-     }
-     const options = {
-         plugins: {
-             legend: {
-                 display: false
-             }
-        }
 
-     }
-     const summary = {
-         id: 'summary',
-         beforeDatasetsDraw(chart, args, pluginOptions) {
-             const { ctx, data } = chart
-             ctx.save()
-             ctx.font = 'bold 12px sans-serif';
-             ctx.fillStyle = 'black'
-             ctx.textAlign = 'center'
-             ctx.textBaseline = 'middle'
-             ctx.fillText( `38,5M <br/> total fund requested`,chart.getDatasetMeta(0).data[0].x, chart.getDatasetMeta(0).data[0].y)
-
-             // ctx.fillText(`${data.datasets[0].data[0]} total fund requested`,chart.getDatasetMeta(0).data[0].x, chart.getDatasetMeta(0).data[0].y)
-         }
-     } */
     //convert number to string with commas
     function numberWithCommas(x) {
         return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
     }
-    // console.log(typeof (numberWithCommas(10000)))
     return (
 
         <div className='max-w-[1000px]'>
-            {/*  <Doughnut
-          data = {data}
-              options={options}
-              plugins = {[summary]}
-          >
-
-          </Doughnut> */}
 
             <React.Fragment>
                 <div className='container-fluid mt-3 mb-3'>
                     <Chart
+
                         type="donut"
-                        width={450}
+                        width={400}
                         height={550}
                         series={[25900000, 12400000]}
 
@@ -104,22 +67,22 @@ const DonutChart = () => {
                                 },
                             },
                             title: {
-                                text: "Funding",
+                                text: "Funding budget",
                                 align: "center",
                                 style: {
                                     fontSize: '20px',
-                                    fontFamily: 'nunito'
+                                    fontFamily: 'nunito',
                                 },
                             },
-
                             plotOptions: {
                                 pie: {
                                     donut: {
+                                        size: "75%",
                                         labels: {
                                             show: true,
                                             value: { //style for total values
                                                 show: true,
-                                                fontSize: '30px',
+                                                fontSize: '25px',
                                                 colors: '#f90000',
                                                 fontFamily: 'nunito',
                                                 fontWeight: '600'
@@ -129,12 +92,11 @@ const DonutChart = () => {
                                                 showAlways: true, //disable show tooltips in the middle when hover
                                                 //formatter: () => '343',
                                                 label: 'Total fund requested',
-                                                fontSize: 15,
+                                                fontSize: 13,
                                                 fontFamily: 'nunito',
                                                 fontWeight: 600,
                                                 // color: '#f90000',
                                                 formatter: function (w) {
-                                                    // numberWithCommas(w)
                                                     return '$' + numberWithCommas(w.globals.seriesTotals.reduce((a, b) => {
                                                         return (a + b)
 
@@ -152,12 +114,8 @@ const DonutChart = () => {
                             dataLabels: {
                                 enabled: false, //percentage on the chart
                             }
-
-
                         }}
-
                     />
-
                 </div>
             </React.Fragment>
         </div>

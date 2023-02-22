@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import { FundChart, ProposalChart } from '../components';
+import { FundChart, ProposalChart, Table } from '../components';
 const Home = () => {
   const StatsRef = useRef(null)
   const scrollToSection = (elementRef) => {
@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <section className="max-w-7xl mx-auto">
       <div className='justify-center text-center py-20'>
-        <h1 className="font-extrabold font-nunito text-blue text-[50px]">CATALYST FUND</h1>
+        <h1 className="font-extrabold font-nunito text-blue text-[50px]">CATALYST FUNDING OVERVIEW</h1>
 
         <p className="mt-2 m-auto text-[#666e75] text-[14px] max-w-[600px] font-poppins">
           Project Catalyst is underway and we’re seeing some incredible participation from a wide spectrum of individuals. This is a collaborative process to create a worldwide community innovation project.
@@ -29,24 +29,44 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div id='stats' className='justify-center text-center pt-10 h-[1000px]' ref={StatsRef
-      }>
-        <h1 className="font-extrabold font-nunito text-blue text-[32px]">Funding Statistics</h1>
-
-        <p className="mt-2 m-auto text-[#666e75] text-[14px] max-w-[600px] font-poppins">
+      <div id='stats' className='justify-center text-center py-10 ' ref={StatsRef} >
+        <h1 className="font-extrabold font-nunito text-blue text-[32px] mt-20">Funding Statistics</h1>
+        <p className="mt-2 m-auto text-[#666e75] text-[14px] max-w-[600px] font-poppins py-5">
           Total amount Project Catalyst has allocated to projects to date    </p>
-        <div className='flex flex-row justify-between max-w-lg m-auto py-10'>
-          <div><h3>9</h3><p>Total funds</p></div>
-          <div><h3>100</h3><p>Total challenges</p></div>
-          <div><h3>1,3M</h3><p>Total votes cast</p></div>
+        <div className='flex flex-row justify-evenly max-w-lg m-auto py-10'>
+          <div><h3 className='text-[30px] text-orange font-bold'>9</h3>
+            <p className=' text-[#666e75] py-3'>Total funds</p>
+          </div>
+          <div className='flex flex-row justify-between'>
+            <div>
+              <hr className='w-[55px] mx-auto my-5 transform rotate-90 border border-gray-light' />
+            </div>
+            <div className='px-5'><h3 className='text-[30px] text-orange font-bold'>100</h3>
+              <p className=' text-[#666e75] py-3'>Total challenges</p>
+            </div>
+            <div>
+              <hr className='w-[55px] mx-auto my-5 transform rotate-90 border border-gray-light' />
+            </div>
+          </div>
+          <div>
+            <h3 className='text-[30px] text-orange font-bold'>1,3M</h3>
+            <p className=' text-[#666e75] py-3'>Total votes cast</p>
+          </div>
         </div>
-        <div>
+        <div className='flex flex-row m-auto justify-evenly'>
           <FundChart />
           <ProposalChart />
         </div>
       </div>
+      <div id='table' className='justify-center text-center pt-10'>
+        <h1 className="font-extrabold font-nunito text-blue text-[32px]">Funding details</h1>
 
-
+        <p className="mt-2 m-auto text-[#666e75] text-[14px] max-w-[600px] font-poppins">
+          Find more details in each fund    </p>
+        <div className='my-10'>
+          <Table />
+        </div>
+      </div>
 
     </section>
   )
