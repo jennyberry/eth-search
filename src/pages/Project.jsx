@@ -3,10 +3,12 @@ import React from 'react'
 const Project = () => {
     return (
         <section className="max-w-7xl mx-auto">
+            {/*-----------------------HEADER----------------------- */}
             <div className='justify-center text-left py-20'>
                 <h1 className="font-extrabold font-nunito text-blue text-[50px]">EVM DAO Integration</h1>
-                <div className='flex flex-row justify-between py-20 text-center'>
 
+                {/* List of number */}
+                <div className='flex flex-row justify-between py-20 text-center'>
                     <div className='px-5'><h3 className='text-[30px] text-orange font-bold'>100</h3>
                         <p className=' text-[#666e75] py-3'>Total challenges</p>
                     </div>
@@ -35,15 +37,17 @@ const Project = () => {
                         <h3 className='text-[30px] text-orange font-bold'>1,3M</h3>
                         <p className=' text-[#666e75] py-3'>Total votes cast</p>
                     </div>
-
                 </div>
+                {/* ----------------------ABOUT SECTION---------------------- */}
                 <div className='my-10'>
                     <h1 className='text-[30px] text-orange font-bold'>Proposal Details</h1>
                     <div className='py-10 flex flex-row'>
+
                         <div className='mr-10'>
                             <div>problems</div>
-                            <div>problems</div>
-                            <div>problems</div>
+                            <div>solution</div>
+                            <div>team</div>
+                            <btn>view on ideascale</btn>
                         </div>
                         <div>
                             <p>

@@ -27,10 +27,12 @@ const App = () => {
           <Route path="/funds" element={<Funds />} />
 
         </Routes>
-        <Footer />
+
 
       </main>
+      <Footer />
     </BrowserRouter>
+
   )
 
 };
