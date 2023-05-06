@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://jennyberry.github.io/eth-search/",
+  "homepage": "https://jennyberry.github.io",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
