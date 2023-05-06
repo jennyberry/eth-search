@@ -29,8 +29,8 @@ const App = () => {
       <Footer />
     </BrowserRouter>
 
-  )
-
+  ),
+    { basename: '/eth-search' }
 };
 
 export default App;
