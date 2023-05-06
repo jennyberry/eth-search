@@ -188,29 +188,24 @@ button:focus-visible {
 .legend-section {
   display: flex;
   font-family: Nunito;
-  flex-direction: column;
-  justify-content: space-between;
-
-}
-
-/* .legend-info {
-  display: flex;
   flex-direction: row;
-  font-family: Nunito;
-  margin: auto;
-} */
+}
 
 .label-data {
   font-size: 15px;
-
+  padding: 0 20px 0 5px;
+  text-align: left;
 }
 
 .numbers {
   font-size: 18px;
   font-weight: 600;
-  padding-top: 2px;
+  padding: 0 0 0 30px;
 }
 
+.custom-line::before {
+  background-color: #535bf2
+}
 
 @tailwind base;
 @tailwind components;

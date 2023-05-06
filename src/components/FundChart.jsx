@@ -1,125 +1,103 @@
-import React from 'react'
-/* import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
-import { Doughnut } from 'react-chartjs-2'
-ChartJS.register(ArcElement, Tooltip, Legend) */
+import React from "react";
+import ReactApexChart from "react-apexcharts";
 
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+}
+const chartData = {
+    // series: [{ distributed }, { remaining }],
+    options: {
+        labels: ["Distributed", "Remaining"],
+        chart: { type: "donut" },
+        legend: {
+            show: true,
+            position: "bottom",
+            labels: {
+                colors: ["#5368F3", "#FFC403"],
+                useSeriesColors: false
+            },
+            style: {
+                fontSize: "16px",
+                fontFamily: "nunito"
+            },
+            itemMargin: {
+                //padding
+                vertical: 10
+            },
+            formatter: function (seriesName, opts) {
+                return '<div class="legend-section">' + '<div class="label-data">' + seriesName + '</div>' + '<div class="numbers">' + '$' + numberWithCommas(opts.w.globals.series[opts.seriesIndex]) + '</div>' + '</div>' + '</div>'
 
-import Chart from 'react-apexcharts';
-
-const DonutChart = () => {
-
-    //convert number to string with commas
-    function numberWithCommas(x) {
-        return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-    }
-    return (
-
-        <div className='max-w-[1000px]'>
-
-            <React.Fragment>
-                <div className='container-fluid mt-3 mb-3'>
-                    <Chart
-
-                        type="donut"
-                        width={400}
-                        height={550}
-                        series={[25900000, 12400000]}
-
-                        options={{
-                            labels: ['Distributed', 'Remaining'],
-                            legend: {
-                                show: true,
-                                position: "bottom",
-                                labels: {
-                                    colors: ['#5368F3', '#FFC403'],
-                                    useSeriesColors: false,
-                                },
-                                style: {
-                                    fontSize: '16px',
-                                    fontFamily: 'nunito'
-                                },
-                                itemMargin: {
-                                    vertical: 10
-                                },
-                                formatter: function (seriesName, opts) {
-                                    return '<div class="legend-section">' + '<div class="label-data">' + seriesName + '</div>' + '<div class="numbers">' + '$' + numberWithCommas(opts.w.globals.series[opts.seriesIndex]) + '</div>' + '</div>' + '</div>'
-                                }
-                            },
-                            fill: {
-                                colors: ['#5368F3', '#FFC403']
-                            },
-                            tooltip: {
-                                enabled: true,
-                                fillSeriesColor: true,
-                                style: {
-                                    fontSize: '16px',
-                                    fontFamily: 'nunito'
-                                },
-
-                            },
-                            colors: ['#5368F3', '#FFC403'],
-                            states: {
-                                hover: {
-                                    filter: {
-                                        type: 'lighten',
-                                        value: '0.1'
-                                    }
-                                },
-                            },
-                            title: {
-                                text: "Funding budget",
-                                align: "center",
-                                style: {
-                                    fontSize: '20px',
-                                    fontFamily: 'nunito',
-                                },
-                            },
-                            plotOptions: {
-                                pie: {
-                                    donut: {
-                                        size: "75%",
-                                        labels: {
-                                            show: true,
-                                            value: { //style for total values
-                                                show: true,
-                                                fontSize: '25px',
-                                                colors: '#f90000',
-                                                fontFamily: 'nunito',
-                                                fontWeight: '600'
-                                            },
-                                            total: {
-                                                show: true,
-                                                showAlways: true, //disable show tooltips in the middle when hover
-                                                //formatter: () => '343',
-                                                label: 'Total fund requested',
-                                                fontSize: 13,
-                                                fontFamily: 'nunito',
-                                                fontWeight: 600,
-                                                // color: '#f90000',
-                                                formatter: function (w) {
-                                                    return '$' + numberWithCommas(w.globals.seriesTotals.reduce((a, b) => {
-                                                        return (a + b)
-
-                                                    }, 0))
-
-                                                }
-                                            },
-
-                                        }
-                                    }
-                                }
-
-                            },
-
-                            dataLabels: {
-                                enabled: false, //percentage on the chart
+            }
+        },
+        colors: ["#5368F3", "#FFC403"],
+        dataLabels: { enabled: false },
+        tooltip: { enabled: true },
+        fill: {
+            colors: ["#5368F3", "#FFC403"]
+        },
+        states: {
+            hover: { filter: { type: "lighten", value: 0.5 } },
+            active: { filter: { type: "none", value: 0 } }
+        },
+        title: {
+            text: "Funding budget",
+            align: "center",
+            style: {
+                fontSize: '20px',
+                fontFamily: 'nunito',
+                colors: '#E86100'
+            },
+        },
+        stroke: { width: 5 }, //width of stroke between
+        plotOptions: {
+            pie: {
+                expandOnClick: false,
+                donut: {
+                    size: "80%", //thickness of the ring
+                    labels: {
+                        show: true,
+                        value: {
+                            //style for total values
+                            show: true,
+                            fontSize: "25px",
+                            colors: "#f90000",
+                            fontFamily: "nunito",
+                            fontWeight: "600"
+                        },
+                        name: { show: true },
+                        total: {
+                            label: "Total fund requested",
+                            fontSize: 13,
+                            fontFamily: "nunito",
+                            fontWeight: 600,
+                            show: true,
+                            showAlways: true,
+                            formatter: function (w) {
+                                const totals = w.globals.seriesTotals;
+                                const result = totals.reduce((a, b) => a + b, 0);
+                                return "$" + numberWithCommas(result);
                             }
-                        }}
-                    />
-                </div>
-            </React.Fragment>
+                        }
+                    }
+                }
+            }
+        }
+    }
+};
+
+function FundChart({ distributed, remaining }) {
+    return (
+        <div className="font-poppins text-center">
+            <ReactApexChart
+                options={chartData.options}
+                series={[distributed, remaining]}
+                type="donut"
+                height={"500px"}
+                className="rounded-lg p-5 border-gray-200 border-[2px] bg-white"
+            />
+            {/* <div>{distributed}</div> */}
         </div>
-    )
+    );
 }
 
-export default DonutChart
+export default FundChart;

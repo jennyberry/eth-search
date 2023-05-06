@@ -1,33 +1,29 @@
 
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 import { logo1 } from './assets';
-import { Home, Challenges, Proposals, Proposers, Funds } from './pages';
-import { Footer } from './components';
+import { Home, Challenges, Proposals, Proposers, Funds, Project, AChallenge } from './pages';
+import { Footer, NavBar } from './components';
+import { React, useState } from 'react';
 const App = () => {
+
   return (
     <BrowserRouter>
-      <header className="w-full flex justify-between items-center bg-white sm:px-8 px-4 py-4 border-b border-b-[#e6ebf4] sticky top-0 z-50">
-        <Link to="/">
-          <img src={logo1} alt="logo" className="w-28 object-contain" />
-        </Link>
-
-        <Link to="https://easterntownhall.com/" className="font-nunito font-bold text-[#DF5F3D] px-4 py-2 rounded-md">Docs</Link>
-        <Link to="/funds" className="font-nunito font-bold text-[#DF5F3D] px-4 py-2 rounded-md">Funds</Link>
-        <Link to="/challenges" className="font-nunito font-bold text-[#DF5F3D] px-4 py-2 rounded-md">Challenges</Link>
-        <Link to="/proposals" className="font-nunito font-bold text-[#DF5F3D] px-4 py-2 rounded-md">Proposals</Link>
-        <Link to="/proposers" className="font-nunito font-bold text-[#DF5F3D] px-4 py-2 rounded-md">Proposers</Link>
-
+      <header className="w-full sticky top-0 z-50">
+        <NavBar />
       </header>
-      <main className="sm:p-8 px-4 py-8 w-full bg-[#f9fafe] min-h-[calc(100vh-73px)] relative">
+
+      <main className="sm:p-8 px-10 py-8 w-full bg-[#fdfefe] min-h-[calc(100vh-73px)] relative">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/challenges" element={<Challenges />} />
           <Route path="/proposals" element={<Proposals />} />
+          <Route path="/proposals/:proposalId" element={<Proposals />} />
           <Route path="/proposers" element={<Proposers />} />
-          <Route path="/funds" element={<Funds />} />
+          <Route path="/funds/:fundId" element={<Funds />} />
+          <Route path="/project" element={<Project />} />
+          <Route path="/challenges/:challengeId" element={<AChallenge />} />
 
         </Routes>
-
 
       </main>
       <Footer />
